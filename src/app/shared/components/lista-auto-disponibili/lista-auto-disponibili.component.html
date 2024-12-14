@@ -1,0 +1,11 @@
+<div class="row w-100 mx-0 mt-3 d-flex flex-column">
+  <div class="col-12 mx-auto">
+    <!--    book list item-->
+    <h3>Lista Auto</h3>
+    <div *ngFor="let a of automobili; let i = index">
+      <app-lista-auto-item  [automobile] = "a" *ngIf="i<20"></app-lista-auto-item>
+      <small *ngIf="automobili.length==0">No products to show here</small>
+    </div>
+
+  </div>
+</div>

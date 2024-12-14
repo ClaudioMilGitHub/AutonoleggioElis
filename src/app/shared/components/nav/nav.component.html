@@ -1,0 +1,28 @@
+<p>
+  <mat-toolbar class="toolbar d-flex justify-content-between">
+    <div>
+      <button type="button" mat-button routerLink="">
+        <span class="main-toolbar">Elis</span>
+      </button>
+
+    </div>
+    <span class="example-spacer"></span>
+
+    <div *ngIf="user && user.ruolo == 1; else notLogged">
+      <button mat-button routerLinkActive="active" routerLink ="/utente">Home</button>
+      <button mat-button routerLinkActive="active" routerLink ="/utente/auto">Lista Auto</button>
+      <button mat-button color="accent" routerLinkActive="active" (click)="logout()">Logout</button>
+    </div>
+
+    <ng-template #notLogged>
+      <div>
+        <button mat-icon-button routerLinkActive="active" routerLink ="/login">
+          <mat-icon>login</mat-icon>
+        </button>
+        <span>oppure</span>
+        <button mat-button color="accent" routerLinkActive="active" routerLink ="/registra">Registrati</button>
+      </div>
+
+    </ng-template>
+  </mat-toolbar>
+</p>

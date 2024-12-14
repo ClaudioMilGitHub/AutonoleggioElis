@@ -1,0 +1,41 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow w-50">
+    <h4 class="text-center mb-4 text-primary display-4">
+      registrazione utente
+    </h4>
+    <form [formGroup]="registrazioneForm" (ngSubmit)="registraUtente()">
+      <mat-form-field class="w-100">
+        <mat-label>nome</mat-label>
+        <input matNativeControl formControlName="nome">
+        <mat-error *ngIf="nome.invalid && nome.touched">{{ getErrorNomeMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>cognome</mat-label>
+        <input matNativeControl formControlName="cognome">
+        <mat-error *ngIf="cognome.invalid && cognome.touched">{{ getErrorCognomeMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>email</mat-label>
+        <input matNativeControl formControlName="username">
+        <mat-error *ngIf="username.invalid && username.touched">{{ getErrorusernameMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>password</mat-label>
+        <input matNativeControl formControlName="password">
+        <mat-error *ngIf="password.invalid && password.touched">{{ getErrorPasswordMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>conferma password</mat-label>
+        <input matNativeControl formControlName="confermaPassword">
+      </mat-form-field>
+      <div class="mb-3" *ngIf="passwordMismatch">
+        <mat-error>{{ getErrorConfermaPasswordMessage() }}</mat-error>
+      </div>
+      <div class="col-12 d-flex justify-content-around">
+        <button type="submit" mat-raised-button color="primary" class="w-25">Registrati</button>
+        <button type="button" mat-raised-button color="accent" class="w-25" (click)="redirectToHome()">Home</button>
+      </div>
+    </form>
+  </div>
+</div>
