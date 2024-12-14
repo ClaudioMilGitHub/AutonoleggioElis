@@ -21,7 +21,8 @@ import {MatListModule} from "@angular/material/list";
     ListaAutoItemComponent
   ],
   exports: [
-    NavComponent
+    NavComponent,
+    ListaAutoItemComponent
   ],
   imports: [
     CommonModule,

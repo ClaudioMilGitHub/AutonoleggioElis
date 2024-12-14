@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Automobile} from "../../models/Automobile";
 import {Subscription} from "rxjs";
 import {AutoService} from "../../services/auto.service";
+import {DisponibilitaRequest} from "../../models/DisponibilitaRequest";
 
 @Component({
   selector: 'app-lista-auto-disponibili',
@@ -17,7 +18,11 @@ export class ListaAutoDisponibiliComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.autoSub = this.autoService.findAll().subscribe({
+    const body: DisponibilitaRequest = {
+      dataInizio: "2024-12-15",
+      dataFine: "2024-12-20",
+    }
+    this.autoSub = this.autoService.findDisponibilita(body).subscribe({
       next: (automobili) => {
         this.automobili = automobili;
       }
